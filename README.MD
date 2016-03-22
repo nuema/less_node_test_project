@@ -6,7 +6,7 @@
 
 **********************************************/
 
-COMO CORRER ESTE PROYECTO EN NODE:
+COMO CORRER ESTE PROYECTO EN NODE, dentro del dir del proyecto, ejecutar:
 $ node server.js
 http://localhost:8081/index.html
 
@@ -14,7 +14,8 @@ http://localhost:8081/index.html
 
 COMMENTS
 	Por qué less:
-		Porque Forza esta hecho en less y actualmente tiene pocas diferencias con sass en cuanto al lenguaje
+		Porque Forza esta hecho en less y actualmente tiene pocas diferencias con Sass en cuanto al lenguaje.
+		La integración con node y java es simple y se puede automatizar.
 
 
 	Install: 

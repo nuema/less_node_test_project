@@ -1,7 +1,7 @@
 {
   "name": "less_test_project",
   "description": "Proyecto para analizar las funcionalidades del preprocesador Less",
-  "version": "2.1.0",
+  "version": "1.3.0",
   "dependencies": {},
   "devDependencies": {
     "express": "^4.13.4",

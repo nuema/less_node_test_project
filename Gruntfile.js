@@ -5,24 +5,32 @@ module.exports = function (grunt) {
 	var mailStylesFile = "styles.css";
 	
 	grunt.initConfig({
-		less: {
+		dev: {
 			default: {
 				options: {
-					//roothpath: "/home/nuema/desa/less_test_project" 
+					variables: {
+						
+					}
+				}
+			}
+		}
+		,less: {
+			default: {
+				options: {
+					//roothpath:
 					paths: ["assets/less"]
-					,compress: true
-					//,sourceMap: true
+                    ,sourceMap: true
+                    ,compress: true
+                    ,sourceMapURL: "styles.min.css.map"
+                    ,outputSourceFiles: true //Mete los less en el mapa y no los referencia
 				}
 				,plugins: [
 					new (require('less-plugin-clean-css'))({ })
 				]
-				,files: {
-					// Todos los archivos .less de la carpeta assets se crean comprimidos en styles.min.css
-					"assets/css/style.min.css":"assets/less/*.less" 
-					//'tmp/concat.css': ['test/fixtures/style.less', 'test/fixtures/style2.less', 'test/fixtures/style3.less']
-					//Todos los bootstraps
-					//,"assets/css/bootstrap.min.css":"assets/less/bootstrap/*.less"
-				}
+                ,files: [{
+                     src: "assets/less/main.less"
+                   , dest: "assets/css/styles.min.css"
+                }]
 			}
 		}
 		,version: {
@@ -50,4 +58,3 @@ module.exports = function (grunt) {
 	grunt.registerTask ('default', ['less', 'version::minor', 'buildnumber']);
 };
 
-// Lila config
