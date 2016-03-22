@@ -1,0 +1,48 @@
+//Variables
+@general-padding: 10px;
+@logoUrl: "../images/less_logo.png";
+@niceGreen: #4CAF50;
+@lightGray: #d3d3d3;
+
+
+.basic-align {
+	text-align: center;
+	margin: 0 auto;	
+}
+
+//El extend(<clase extendida>) va a agregar a esta clase al selector de la clase extendida
+.body {
+	&:extend(.basic-align);
+}
+
+.general-border {
+  color: @lightGray;
+  @basic-border:pi()*1px - 1 ;
+  border-radius: @basic-border + 10;
+  border: @basic-border solid;
+}
+
+//Agregar una clase como regla, funciona como include
+//Se pueden agregar propiedades anidadas
+.panel-main {
+	.general-border;
+	&:extend(.basic-align);
+	padding: @general-padding + 5;
+	h1 {
+		color: darken(@lightGray, 30%);
+	} 
+}
+
+//Mixin as function
+.getImageSize (@url) {
+	@imageWidth : image-width(@url);
+	@imageHeight: image-height(@url);
+}
+
+.logoWrapper {
+	&:extend(.basic-align);
+	.getImageSize (@logoUrl);
+	width: @imageWidth;
+	height: @imageHeight;
+	background: transparent url(@logoUrl) no-repeat 0 0;
+}
