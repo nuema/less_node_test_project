@@ -3,17 +3,27 @@
 module.exports = function (grunt) {
 
 	var mailStylesFile = "styles.css";
+	var appVersion = grunt.file.readJSON('version.json');
 	
 	grunt.initConfig({
-		dev: {
-			default: {
-				options: {
-					variables: {
-						
-					}
-				}
-			}
-		}
+        replace: {
+            default: {
+                options: {
+                    patterns: [
+                        {
+                            json: function (done) {
+                            	done ({
+                            		version: appVersion
+                            	});
+                            }
+                        }
+                    ]
+                },
+                files: [
+                    {expand: true, flatten: true, src: ['src/index.html'], dest: './'}
+                ]
+            }
+        }
 		,less: {
 			default: {
 				options: {
@@ -54,7 +64,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-version');
 	grunt.loadNpmTasks('grunt-build-number');
+	grunt.loadNpmTasks('grunt-replace');
 	
-	grunt.registerTask ('default', ['less', 'version::minor', 'buildnumber']);
+	grunt.registerTask ('default', ['less', 'version::minor', 'buildnumber', 'replace']);
 };
 

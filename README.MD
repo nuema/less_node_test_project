@@ -40,7 +40,12 @@ COMMENTS
 	Apps: http://koala-app.com/ Koala, compila y comprime  
 
 
-* SOBRE VERSION Y BUILD: {version.minorVersion.revision}
+* SOBRE ESTE PROJECTO:
+
+VERSION Y BUILD: {version.minorVersion.revision}
+Se usan los plugins de grunt grunt-version y grunt-build-number
+https://www.npmjs.com/package/grunt-version
+https://www.npmjs.com/package/grunt-build-number
 
 	$ grunt version::patch 
 Aumenta el numero de revision
@@ -53,6 +58,11 @@ Aumenta el numero de version
 
 	$ grunt buildnumber
 Aumenta el numero de build
+
+
+REPLACE:
+Se usa el plugin grunt-replace para declarar variables globales
+https://www.npmjs.com/package/grunt-replace
 
 
 
